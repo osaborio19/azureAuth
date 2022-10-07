@@ -11,7 +11,8 @@ const App = (props) => {
 
 
   const { login, error } = useMsalAuthentication(InteractionType.Silent, loginRequest);
-  let token = null
+  const [token, setToken] = useState(null);
+
 
   //Login Data
   useEffect(() => {
@@ -38,6 +39,7 @@ const App = (props) => {
     instance.acquireTokenSilent(tokenRequest).then((response) => {
       // Call your API with the access token and return the data you need to save in state
       console.log('accessToken', response.accessToken)
+      setToken(response.accessToken)
       // callApi(response.accessToken).then((data) => {
       //   setApiData(data);
       //   setLoading(false);
@@ -66,6 +68,8 @@ const App = (props) => {
           ?
           <div>
             <h1>Hi {accounts[0].name}</h1>
+            <h1>Your Token</h1>
+            <div>{token}</div>
           </div>
           :
           <div>Authenticating</div>
