@@ -25,15 +25,12 @@ const App = (props) => {
 
       login(InteractionType.Redirect, loginRequest)
 
-    } else {
-
-      //If the session is alive, getAccesToken
-      console.log('User is Authenticated', accounts[0])
-      getAccessToken()
-
     }
   }, [error]);
 
+  if(isAuthenticated && token === null){
+    getAccessToken()
+  }
 
   function getAccessToken() {
 
