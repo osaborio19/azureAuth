@@ -28,7 +28,7 @@ const App = (props) => {
     } else {
 
       //If the session is alive, getAccesToken
-      console.log('User is Authenticated')
+      console.log('User is Authenticated', accounts[0])
       getAccessToken()
 
     }
@@ -47,7 +47,7 @@ const App = (props) => {
       // Call your API with the access token and return the data you need to save in state
       setToken(response.accessToken)
 
-      console.log('got token')
+      console.log('got token', response.accessToken)
 
       //Get User Details
       callMsGraph(response.accessToken)
