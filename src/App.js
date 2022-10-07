@@ -78,6 +78,7 @@ const App = (props) => {
 
     const result = Axios(options).then(
       (response) => {
+        console.log('MsGraph', response.data)
         setGraphData(response.data)
       }
     ).catch(
