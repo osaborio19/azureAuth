@@ -24,6 +24,8 @@ const App = (props) => {
   const isAuthenticated = useIsAuthenticated()
   const { accounts, instance } = useMsal();
 
+
+  //this should be in the axios instance
   if (isAuthenticated) {
 
     //Get Access token, do this when you want to get a token
